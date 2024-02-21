@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500&display=swap');
+
+body {
+    background-color: #FFFEF0;
+}
+
+#container {
+    position: relative;
+    height: 200px;
+    margin-top: -50px;
+}
+
+#lottie {
+    margin: auto;
+    width: 68%;
+    z-index: 1;
+}
+
+#logo {
+    display: block;
+    margin: 0 auto;
+    width: 28%;
+    position: absolute;
+    top: 100%;
+    left: 36%;
+    z-index: 2;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding-right: 40px;
+}
+
+.title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+}
+
+.menu {
+    list-style-type: none;
+    text-align: right;
+    font-weight: 600;
+
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    color: #2D2D2D;
+}
+
+footer {
+    background-color: #FFFEF0;
+    height: 2%;
+    position: relative;
+    color: #2D2D2D;
+    padding: 0px;
+    text-align: center;
+    margin-top: 28.6%;
+   
+    font-weight: 600;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+@media (max-width: 768px) {
+    #container {
+        position: relative;
+        padding-top: 40px;
+        height: 200px;
+    }
+
+    #lottie {
+        background-color: #FFFEF0;
+        margin: auto;
+        width: 75%;
+        z-index: 1;
+    }
+
+    #logo {
+        display: block;
+        margin: 0 auto;
+        width: 30%;
+        position: absolute;
+        top: 100%;
+        left: 35%;
+        z-index: 2;
+    }
+}
