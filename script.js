@@ -7,7 +7,7 @@ bodymovin.loadAnimation({
 
 // Function to generate a random dark color that complements yellow
 function getRandomDarkColor() {
-  var yellowComplementaryColors = ['#F4EF00', '#F40000', '#14F400', '#2200F4'];
+  var yellowComplementaryColors = ['#FF0000', '#FAFF00', '#2400FF', '#FFFEF0', 'FFE6E6'];
   return yellowComplementaryColors[Math.floor(Math.random() * yellowComplementaryColors.length)];
 }
 
