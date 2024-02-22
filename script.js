@@ -4,3 +4,18 @@ bodymovin.loadAnimation({
     container: document.getElementById("lottie"),
     animationData: animData
 })
+
+// Function to generate a random dark color that complements yellow
+function getRandomDarkColor() {
+  var yellowComplementaryColors = ['#F4EF00', '#F40000', '#14F400', '#2200F4'];
+  return yellowComplementaryColors[Math.floor(Math.random() * yellowComplementaryColors.length)];
+}
+
+// Function to set background color
+function changeBackgroundColor() {
+  var color = getRandomDarkColor();
+  document.getElementById('background').style.backgroundColor = color;
+}
+
+// Change background color every 3 seconds (3000 milliseconds)
+setInterval(changeBackgroundColor, 3000);
