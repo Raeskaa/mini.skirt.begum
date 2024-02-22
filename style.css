@@ -59,11 +59,11 @@ footer {
     position: relative;
     color: #2D2D2D;
     padding: 0px;
-    text-align: center;
+    text-align: right;
     margin-top: 28.6%;
    
     font-weight: 600;
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: 'helvetica', sans-serif;
 }
 
 @media (max-width: 768px) {
