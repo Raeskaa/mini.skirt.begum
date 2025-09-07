@@ -16,8 +16,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const slug = params.slug;
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
 
   // Sample project data - in a real app, this would come from a CMS or API
   const projectData: { [key: string]: any } = {

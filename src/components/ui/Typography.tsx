@@ -50,7 +50,7 @@ export function Heading({
 
 // Text Component
 interface TextProps extends BaseTypographyProps {
-  variant?: 'large' | 'body' | 'small' | 'caption';
+  variant?: 'hero' | 'display' | 'large' | 'body' | 'small' | 'caption' | 'mono';
 }
 
 export function Text({ 

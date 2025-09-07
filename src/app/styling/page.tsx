@@ -10,8 +10,16 @@ import {
   SecondaryButton,
   OutlineButton,
   GhostButton,
+  DangerButton,
+  SuccessButton,
+  WarningButton,
   Input,
   EmailInput,
+  PasswordInput,
+  SearchInput,
+  TextareaInput,
+  NumberInput,
+  TelInput,
   Container,
   Section,
   ContentSection
@@ -189,6 +197,9 @@ export default function StylingPage() {
                     <SecondaryButton>Secondary Button</SecondaryButton>
                     <OutlineButton>Outline Button</OutlineButton>
                     <GhostButton>Ghost Button</GhostButton>
+                    <DangerButton>Danger Button</DangerButton>
+                    <SuccessButton>Success Button</SuccessButton>
+                    <WarningButton>Warning Button</WarningButton>
                   </div>
                   <Text variant="small" color="gray-500">
                     All buttons include hover states, focus indicators, and smooth transitions
@@ -199,12 +210,14 @@ export default function StylingPage() {
                 <div className="space-y-6">
                   <Heading level={3}>Button Sizes</Heading>
                   <div className="flex flex-wrap items-center gap-4">
+                    <Button size="xs">Extra Small</Button>
                     <Button size="sm">Small</Button>
                     <Button size="md">Medium</Button>
                     <Button size="lg">Large</Button>
+                    <Button size="xl">Extra Large</Button>
                   </div>
                   <Text variant="small" color="gray-500">
-                    Small: 32px height, Medium: 44px height, Large: 56px height
+                    XS: 24px, S: 32px, M: 44px, L: 56px, XL: 68px height
                   </Text>
                 </div>
 
@@ -214,10 +227,11 @@ export default function StylingPage() {
                   <div className="flex flex-wrap gap-4">
                     <Button>Normal</Button>
                     <Button disabled>Disabled</Button>
+                    <Button loading>Loading</Button>
                     <Button fullWidth>Full Width</Button>
                   </div>
                   <Text variant="small" color="gray-500">
-                    Includes normal, hover, focus, and disabled states
+                    Includes normal, hover, focus, disabled, and loading states
                   </Text>
                 </div>
               </div>
@@ -227,40 +241,88 @@ export default function StylingPage() {
             <div className="space-y-8">
               <Heading level={2}>Form Components</Heading>
               
-              <div className="space-y-6">
-                <Heading level={3}>Input Fields</Heading>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <Input
-                    label="Text Input"
-                    placeholder="Enter your name"
-                    value=""
-                    onChange={() => {}}
-                  />
-                  <EmailInput
-                    label="Email Input"
-                    placeholder="Enter your email"
-                    value=""
-                    onChange={() => {}}
-                  />
-                  <Input
-                    label="Required Field"
-                    placeholder="This field is required"
-                    value=""
-                    onChange={() => {}}
-                    required
-                  />
-                  <Input
-                    label="Error State"
-                    placeholder="This field has an error"
-                    value=""
-                    onChange={() => {}}
-                    error="This field is required"
-                  />
+                <div className="space-y-6">
+                  <Heading level={3}>Input Fields</Heading>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <Input
+                      label="Text Input"
+                      placeholder="Enter your name"
+                      value=""
+                      onChange={() => {}}
+                    />
+                    <EmailInput
+                      label="Email Input"
+                      placeholder="Enter your email"
+                      value=""
+                      onChange={() => {}}
+                    />
+                    <PasswordInput
+                      label="Password Input"
+                      placeholder="Enter your password"
+                      value=""
+                      onChange={() => {}}
+                    />
+                    <SearchInput
+                      label="Search Input"
+                      placeholder="Search..."
+                      value=""
+                      onChange={() => {}}
+                    />
+                    <NumberInput
+                      label="Number Input"
+                      placeholder="Enter a number"
+                      value=""
+                      onChange={() => {}}
+                    />
+                    <TelInput
+                      label="Phone Input"
+                      placeholder="Enter your phone"
+                      value=""
+                      onChange={() => {}}
+                    />
+                    <Input
+                      label="Required Field"
+                      placeholder="This field is required"
+                      value=""
+                      onChange={() => {}}
+                      required
+                    />
+                    <Input
+                      label="Error State"
+                      placeholder="This field has an error"
+                      value=""
+                      onChange={() => {}}
+                      error="This field is required"
+                    />
+                    <Input
+                      label="Success State"
+                      placeholder="This field is valid"
+                      value="Valid input"
+                      onChange={() => {}}
+                      success="Looks good!"
+                    />
+                    <Input
+                      label="Helper Text"
+                      placeholder="With helper text"
+                      value=""
+                      onChange={() => {}}
+                      helperText="This is helpful information"
+                    />
+                  </div>
+                  <div className="mt-6">
+                    <TextareaInput
+                      label="Textarea Input"
+                      placeholder="Enter your message"
+                      value=""
+                      onChange={() => {}}
+                      rows={4}
+                      maxLength={500}
+                    />
+                  </div>
+                  <Text variant="small" color="gray-500">
+                    All inputs include labels, focus states, error handling, validation states, and accessibility features
+                  </Text>
                 </div>
-                <Text variant="small" color="gray-500">
-                  All inputs include labels, focus states, error handling, and accessibility features
-                </Text>
-              </div>
             </div>
 
             {/* Layout Components */}

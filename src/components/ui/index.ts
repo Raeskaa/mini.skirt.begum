@@ -14,7 +14,10 @@ export {
   PrimaryButton,
   SecondaryButton,
   OutlineButton,
-  GhostButton
+  GhostButton,
+  DangerButton,
+  SuccessButton,
+  WarningButton
 } from './Button';
 
 // Layout Components
@@ -37,5 +40,8 @@ export {
   default as Input,
   EmailInput,
   PasswordInput,
-  SearchInput
+  SearchInput,
+  TextareaInput,
+  NumberInput,
+  TelInput
 } from './Input';

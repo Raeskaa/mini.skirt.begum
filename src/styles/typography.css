@@ -7,19 +7,21 @@
   --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
 }
 
-/* Typography Scale - Mobile First */
+/* Typography Scale - Mobile First with Fluid Scaling */
 :root {
-  /* Font Sizes - Mobile (base) */
-  --text-xs: 0.75rem;    /* 12px */
-  --text-sm: 0.875rem;   /* 14px */
-  --text-base: 1rem;     /* 16px */
-  --text-lg: 1.125rem;   /* 18px */
-  --text-xl: 1.25rem;    /* 20px */
-  --text-2xl: 1.5rem;    /* 24px */
-  --text-3xl: 1.875rem;  /* 30px */
-  --text-4xl: 2.25rem;   /* 36px */
-  --text-5xl: 3rem;      /* 48px */
-  --text-6xl: 3.75rem;   /* 60px */
+  /* Font Sizes - Mobile (base) with fluid scaling */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);    /* 12px - 14px */
+  --text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);      /* 14px - 16px */
+  --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);      /* 16px - 18px */
+  --text-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);     /* 18px - 20px */
+  --text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);      /* 20px - 24px */
+  --text-2xl: clamp(1.5rem, 1.3rem + 1vw, 1.875rem);       /* 24px - 30px */
+  --text-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.25rem);  /* 30px - 36px */
+  --text-4xl: clamp(2.25rem, 1.8rem + 2.25vw, 3rem);       /* 36px - 48px */
+  --text-5xl: clamp(3rem, 2.2rem + 4vw, 3.75rem);          /* 48px - 60px */
+  --text-6xl: clamp(3.75rem, 2.5rem + 6.25vw, 4.5rem);     /* 60px - 72px */
+  --text-7xl: clamp(4.5rem, 3rem + 7.5vw, 5.25rem);        /* 72px - 84px */
+  --text-8xl: clamp(5.25rem, 3.5rem + 8.75vw, 6rem);       /* 84px - 96px */
 
   /* Line Heights */
   --leading-tight: 1.1;
@@ -88,41 +90,83 @@ body {
 /* Heading Styles */
 h1, .heading-1 {
   font-family: var(--font-display);
-  font-size: var(--text-4xl);
+  font-size: var(--text-6xl);
   line-height: var(--leading-tight);
   font-weight: var(--font-normal);
   color: #000000;
   margin: 0;
+  letter-spacing: var(--tracking-tight);
 }
 
 h2, .heading-2 {
   font-family: var(--font-display);
-  font-size: var(--text-3xl);
+  font-size: var(--text-5xl);
   line-height: var(--leading-tight);
   font-weight: var(--font-normal);
   color: #000000;
   margin: 0;
+  letter-spacing: var(--tracking-tight);
 }
 
 h3, .heading-3 {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  line-height: var(--leading-snug);
+  font-weight: var(--font-normal);
+  color: #000000;
+  margin: 0;
+  letter-spacing: var(--tracking-normal);
+}
+
+h4, .heading-4 {
   font-family: var(--font-primary);
   font-size: var(--text-2xl);
   line-height: var(--leading-snug);
   font-weight: var(--font-semibold);
   color: #000000;
   margin: 0;
+  letter-spacing: var(--tracking-normal);
 }
 
-h4, .heading-4 {
+h5, .heading-5 {
   font-family: var(--font-primary);
   font-size: var(--text-xl);
   line-height: var(--leading-snug);
   font-weight: var(--font-medium);
   color: #000000;
   margin: 0;
+  letter-spacing: var(--tracking-normal);
+}
+
+h6, .heading-6 {
+  font-family: var(--font-primary);
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+  font-weight: var(--font-medium);
+  color: #000000;
+  margin: 0;
+  letter-spacing: var(--tracking-normal);
 }
 
 /* Body Text Styles */
+.text-hero {
+  font-family: var(--font-display);
+  font-size: var(--text-8xl);
+  line-height: var(--leading-tight);
+  font-weight: var(--font-normal);
+  color: #000000;
+  letter-spacing: var(--tracking-tight);
+}
+
+.text-display {
+  font-family: var(--font-display);
+  font-size: var(--text-7xl);
+  line-height: var(--leading-tight);
+  font-weight: var(--font-normal);
+  color: #000000;
+  letter-spacing: var(--tracking-tight);
+}
+
 .text-large {
   font-family: var(--font-primary);
   font-size: var(--text-lg);
@@ -153,6 +197,14 @@ h4, .heading-4 {
   line-height: var(--leading-normal);
   font-weight: var(--font-normal);
   color: #666666;
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  font-weight: var(--font-normal);
+  color: #000000;
 }
 
 /* UI Element Styles */
