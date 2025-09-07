@@ -23,7 +23,7 @@ export default function AboutSection() {
         backgroundColor: '#ffffff',
         maxWidth: '1200px',
         margin: '0 auto',
-        padding: '100px 40px'
+        padding: '120px 40px 100px 40px'
       }}
     >
       {/* Top Section - Main Description */}

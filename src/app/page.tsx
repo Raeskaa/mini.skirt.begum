@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-white pt-24">
+    <main className="bg-white">
       <div className="animate-fade-in">
         <HeroSection />
       </div>

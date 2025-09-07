@@ -1,13 +1,20 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function Navigation() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [displayedText, setDisplayedText] = useState('[miniskirtbegum]');
   const [isTyping, setIsTyping] = useState(false);
+  const [isOverHero, setIsOverHero] = useState(true); // Start as true since hero is at top
+  
+  // Only apply white navigation on homepage
+  const isHomepage = pathname === '/';
+  const shouldUseWhiteNav = isHomepage && isOverHero;
 
   const navLinks = [
     { name: 'Work', href: '/work' },
@@ -65,6 +72,14 @@ export default function Navigation() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
+      // Only check hero section on homepage
+      if (isHomepage) {
+        const heroHeight = window.innerHeight;
+        setIsOverHero(currentScrollY < heroHeight);
+      } else {
+        setIsOverHero(false); // Not on homepage, so not over hero
+      }
+      
       // If scrolled down from top, show [msb]
       if (currentScrollY > 50 && !isScrolled) {
         setIsScrolled(true);
@@ -84,10 +99,12 @@ export default function Navigation() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY, isScrolled, isTyping]);
+  }, [lastScrollY, isScrolled, isTyping, isHomepage]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+      shouldUseWhiteNav ? 'bg-transparent' : 'bg-white'
+    }`}>
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Left Navigation Links */}
@@ -96,12 +113,14 @@ export default function Navigation() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-900 hover:text-gray-600 transition-all duration-300 ease-in-out hover:scale-105 text-sm font-normal hover:font-medium relative group"
+                className={`transition-all duration-300 ease-in-out hover:scale-105 text-sm font-normal hover:font-medium relative group ${
+                  shouldUseWhiteNav ? 'text-white hover:text-gray-200' : 'text-gray-900 hover:text-gray-600'
+                }`}
               >
-                <span className="text-gray-400 text-xs mr-1">({index + 1})</span>
+                <span className={`text-xs mr-1 ${shouldUseWhiteNav ? 'text-white' : 'text-gray-400'}`}>({index + 1})</span>
                 {link.name}
                 {index < navLinks.length - 1 && (
-                  <span className="ml-2 text-gray-400">,</span>
+                  <span className={`ml-2 ${shouldUseWhiteNav ? 'text-white' : 'text-gray-400'}`}>,</span>
                 )}
               </a>
             ))}
@@ -111,7 +130,9 @@ export default function Navigation() {
           <div className="absolute left-1/2 transform -translate-x-1/2">
             <a
               href="/"
-              className="text-gray-400 text-sm font-normal hover:text-gray-600 transition-colors duration-300 cursor-pointer"
+              className={`text-sm font-normal transition-colors duration-300 cursor-pointer ${
+                shouldUseWhiteNav ? 'text-white hover:text-gray-200' : 'text-gray-400 hover:text-gray-600'
+              }`}
               style={{ 
                 fontFamily: 'Inter, sans-serif',
                 minWidth: '120px', // Prevent layout shift during typing
@@ -126,14 +147,20 @@ export default function Navigation() {
 
           {/* Right Side - CTA Button and Menu */}
           <div className="flex items-center space-x-4">
-            <button className="hidden md:block bg-transparent border border-gray-900 text-gray-900 px-6 py-2 rounded-full hover:bg-gray-900 hover:text-white transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg text-sm font-normal hover:font-medium transform">
+            <button className={`hidden md:block px-6 py-2 rounded-full transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg text-sm font-normal hover:font-medium transform ${
+              shouldUseWhiteNav 
+                ? 'bg-transparent border border-white text-white hover:bg-white hover:text-black' 
+                : 'bg-transparent border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white'
+            }`}>
               Start The Project
             </button>
             
             {/* Hamburger menu button - visible on all devices */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-900 hover:text-gray-600 focus:outline-none focus:text-gray-600 transition-all duration-300 ease-in-out hover:scale-110 transform"
+              className={`focus:outline-none transition-all duration-300 ease-in-out hover:scale-110 transform ${
+                shouldUseWhiteNav ? 'text-white hover:text-gray-200' : 'text-gray-900 hover:text-gray-600'
+              }`}
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
