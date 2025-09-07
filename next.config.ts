@@ -1,13 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
-  trailingSlash: true,
-  images: {
-    unoptimized: true
-  },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/mini.skirt.begum' : '',
-  basePath: process.env.NODE_ENV === 'production' ? '/mini.skirt.begum' : '',
+  // Only use static export for production builds
+  ...(process.env.NODE_ENV === 'production' && {
+    output: 'export',
+    trailingSlash: true,
+    images: {
+      unoptimized: true
+    },
+    assetPrefix: '/mini.skirt.begum',
+    basePath: '/mini.skirt.begum',
+  }),
   eslint: {
     ignoreDuringBuilds: true,
   },
