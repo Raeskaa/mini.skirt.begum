@@ -27,6 +27,7 @@ export default function Navigation() {
     { name: 'Products', href: '/products' },
     { name: 'Shop', href: '/shop' },
     { name: 'Styling', href: '/styling' },
+    { name: 'Wrap Demo', href: '/wrap-demo' },
   ];
 
   const subMenuSections = [
