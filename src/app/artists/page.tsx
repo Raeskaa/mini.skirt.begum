@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Footer from '@/components/Footer';
+import GreyFrame from '@/components/GreyFrame';
 
 export default function ArtistsPage() {
   const router = useRouter();
@@ -164,7 +165,7 @@ export default function ArtistsPage() {
                 position: 'absolute',
                 top: '200px',
                 right: '50px',
-                backgroundColor: '#d1d1d1',
+                backgroundColor: '#f5f5f5',
                 width: '600px',
                 height: '600px',
                 borderRadius: '50%',
@@ -221,7 +222,7 @@ export default function ArtistsPage() {
                 {/* Left Rectangle */}
                 <div 
                   style={{
-                    backgroundColor: '#d1d1d1',
+                    backgroundColor: '#f5f5f5',
                     height: '150px',
                     borderRadius: '0px'
                   }}
@@ -230,7 +231,7 @@ export default function ArtistsPage() {
                 {/* Right Rectangle */}
                 <div 
                   style={{
-                    backgroundColor: '#d1d1d1',
+                    backgroundColor: '#f5f5f5',
                     height: '200px',
                     borderRadius: '0px'
                   }}
@@ -258,7 +259,7 @@ export default function ArtistsPage() {
               {/* Large Bottom Placeholder */}
               <div 
                 style={{
-                  backgroundColor: '#d1d1d1',
+                  backgroundColor: '#f5f5f5',
                   height: '200px',
                   borderRadius: '0px',
                   marginBottom: '40px'
@@ -283,6 +284,7 @@ export default function ArtistsPage() {
         </div>
       </section>
 
+      <GreyFrame />
       <Footer />
 
       {/* Mobile Responsive Styles */}

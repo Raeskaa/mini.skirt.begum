@@ -24,6 +24,8 @@ import {
   Section,
   ContentSection
 } from '@/components/ui';
+import Footer from '@/components/Footer';
+import GreyFrame from '@/components/GreyFrame';
 
 export default function StylingPage() {
   return (
@@ -449,6 +451,9 @@ export default function StylingPage() {
           </div>
         </Container>
       </Section>
+      
+      <GreyFrame />
+      <Footer />
     </main>
   );
 }

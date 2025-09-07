@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import Footer from "@/components/Footer";
 import ProjectCard from "@/components/ProjectCard";
+import GreyFrame from "@/components/GreyFrame";
 
 export default function WorkPage() {
   const router = useRouter();
@@ -123,6 +124,7 @@ export default function WorkPage() {
         </div>
       </section>
 
+      <GreyFrame />
       <Footer />
 
       {/* Responsive Styles */}

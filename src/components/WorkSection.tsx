@@ -36,7 +36,7 @@ export default function WorkSection() {
         >
           <div 
             style={{
-              backgroundColor: '#d1d1d1',
+              backgroundColor: '#f5f5f5',
               height: '600px',
               borderRadius: '0px',
               cursor: 'pointer',
@@ -50,7 +50,7 @@ export default function WorkSection() {
 
           <div 
             style={{
-              backgroundColor: '#d1d1d1',
+              backgroundColor: '#f5f5f5',
               height: '600px',
               borderRadius: '0px',
               cursor: 'pointer',
@@ -66,7 +66,7 @@ export default function WorkSection() {
         {/* Middle Row - 1 Wide Image */}
         <div 
           style={{
-            backgroundColor: '#d1d1d1',
+            backgroundColor: '#f5f5f5',
             height: '500px',
             borderRadius: '0px',
             cursor: 'pointer',
@@ -89,7 +89,7 @@ export default function WorkSection() {
         >
           <div 
             style={{
-              backgroundColor: '#d1d1d1',
+              backgroundColor: '#f5f5f5',
               height: '600px',
               borderRadius: '0px',
               cursor: 'pointer',
@@ -103,7 +103,7 @@ export default function WorkSection() {
 
           <div 
             style={{
-              backgroundColor: '#d1d1d1',
+              backgroundColor: '#f5f5f5',
               height: '600px',
               borderRadius: '0px',
               cursor: 'pointer',

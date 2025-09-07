@@ -34,7 +34,7 @@ export default function ProjectCard({
         style={{
           width: '100%',
           height: `${height}px`,
-          backgroundColor: '#d1d1d1',
+          backgroundColor: '#f5f5f5',
           backgroundImage: image ? `url(${image})` : 'none',
           backgroundSize: 'cover',
           backgroundPosition: 'center',

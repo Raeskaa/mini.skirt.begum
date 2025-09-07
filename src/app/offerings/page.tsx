@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import ProjectCard from '@/components/ProjectCard';
 import Footer from '@/components/Footer';
+import GreyFrame from '@/components/GreyFrame';
 
 export default function OfferingsPage() {
   const [expandedService, setExpandedService] = useState(0); // Digital Design is expanded by default
@@ -271,7 +272,7 @@ export default function OfferingsPage() {
           {/* Gray Placeholder Rectangle */}
           <div 
             style={{
-              backgroundColor: '#d1d1d1',
+              backgroundColor: '#f5f5f5',
               height: '300px',
               borderRadius: '0px',
               marginBottom: '40px'
@@ -454,6 +455,7 @@ export default function OfferingsPage() {
         </div>
       </section>
 
+      <GreyFrame />
       <Footer />
 
       {/* Mobile Responsive Styles */}

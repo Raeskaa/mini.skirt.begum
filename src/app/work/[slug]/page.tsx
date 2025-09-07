@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import ProjectPageClient from "@/components/ProjectPageClient";
+import GreyFrame from "@/components/GreyFrame";
 
 // Generate static params for all project slugs
 export async function generateStaticParams() {
@@ -323,7 +324,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               style={{
                 width: '100%',
                 height: '500px',
-                backgroundColor: '#d1d1d1',
+                backgroundColor: '#f5f5f5',
                 backgroundImage: project.image ? `url(${project.image})` : 'none',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
@@ -409,7 +410,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               style={{
                 width: '100%',
                 height: '400px',
-                backgroundColor: '#d1d1d1',
+                backgroundColor: '#f5f5f5',
                 marginTop: '20px'
               }}
             />
@@ -477,6 +478,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
+      <GreyFrame />
       <Footer />
 
     </main>
