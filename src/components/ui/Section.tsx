@@ -8,7 +8,7 @@ interface SectionProps {
   backgroundColor?: 'white' | 'gray-50' | 'gray-100' | 'black';
   padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   container?: boolean;
   containerMaxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
   containerPadding?: 'none' | 'sm' | 'md' | 'lg' | 'xl';

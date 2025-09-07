@@ -1,13 +1,23 @@
-'use client';
-
-import { useParams, useRouter } from 'next/navigation';
 import Footer from "@/components/Footer";
-import ProjectCard from "@/components/ProjectCard";
+import ProjectPageClient from "@/components/ProjectPageClient";
 
-export default function ProjectPage() {
-  const params = useParams();
-  const router = useRouter();
-  const slug = params.slug as string;
+// Generate static params for all project slugs
+export async function generateStaticParams() {
+  const projects = [
+    'small-talk',
+    'project-2',
+    'project-3',
+    'project-4',
+    'project-5'
+  ];
+
+  return projects.map((slug) => ({
+    slug: slug,
+  }));
+}
+
+export default function ProjectPage({ params }: { params: { slug: string } }) {
+  const slug = params.slug;
 
   // Sample project data - in a real app, this would come from a CMS or API
   const projectData: { [key: string]: any } = {
@@ -42,10 +52,6 @@ export default function ProjectPage() {
 
   const project = projectData[slug] || projectData['small-talk'];
 
-  const handleStartProject = () => {
-    // Handle start project action
-    console.log('Start The Project clicked');
-  };
 
 
   // Related projects data
@@ -235,8 +241,8 @@ export default function ProjectPage() {
             </div>
 
             {/* Start The Project Button */}
-            <button 
-              onClick={handleStartProject}
+            <a 
+              href="/contact"
               style={{
                 fontFamily: 'Inter, sans-serif',
                 fontSize: '16px',
@@ -250,17 +256,9 @@ export default function ProjectPage() {
                 transition: 'all 0.3s ease',
                 width: 'fit-content'
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#000000';
-                e.currentTarget.style.color = '#ffffff';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.color = '#000000';
-              }}
             >
               Start The Project
-            </button>
+            </a>
 
             {/* Page Number */}
             <div 
@@ -423,40 +421,10 @@ export default function ProjectPage() {
               marginTop: '80px'
             }}
           >
-            <h2 
-              style={{
-                fontFamily: 'Tiempos, Georgia, serif',
-                fontSize: '42px',
-                fontWeight: 400,
-                color: '#000000',
-                marginBottom: '40px'
-              }}
-            >
-              Related Projects
-            </h2>
-            
-            <div 
-              className="related-projects"
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '40px'
-              }}
-            >
-              {relatedProjects.map((relatedProject) => (
-                <ProjectCard
-                  key={relatedProject.id}
-                  image={relatedProject.image}
-                  brandName={relatedProject.brandName}
-                  industry={relatedProject.industry}
-                  tags={relatedProject.tags}
-                  height={300}
-                  onClick={() => {
-                    router.push(`/work/${relatedProject.slug}`);
-                  }}
-                />
-              ))}
-            </div>
+            <ProjectPageClient 
+              relatedProjects={relatedProjects}
+              serviceButtons={serviceButtons}
+            />
           </div>
 
           {/* Offerings Section */}
@@ -485,37 +453,6 @@ export default function ProjectPage() {
                 Offerings
               </h2>
               
-              {/* Service Buttons */}
-              <div 
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '16px',
-                  marginBottom: '40px'
-                }}
-              >
-                {serviceButtons.map((button, index) => (
-                  <button
-                    key={index}
-                    onClick={() => router.push(button.route)}
-                    style={{
-                      fontFamily: 'Inter, sans-serif',
-                      fontSize: '16px',
-                      fontWeight: 400,
-                      padding: '14px 24px',
-                      borderRadius: '30px',
-                      width: 'fit-content',
-                      border: button.type === 'primary' ? 'none' : '1px solid #000000',
-                      backgroundColor: button.type === 'primary' ? '#000000' : 'transparent',
-                      color: button.type === 'primary' ? '#ffffff' : '#000000',
-                      cursor: 'pointer',
-                      textAlign: 'left'
-                    }}
-                  >
-                    {button.name}
-                  </button>
-                ))}
-              </div>
             </div>
 
             {/* Right Column - Description */}
@@ -534,27 +471,6 @@ export default function ProjectPage() {
                 {project.description}
               </p>
 
-              {/* Check Details Link */}
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  router.push('/services');
-                }}
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '16px',
-                  fontWeight: 400,
-                  color: '#000000',
-                  textDecoration: 'none',
-                  display: 'block',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => e.target.style.textDecoration = 'underline'}
-                onMouseLeave={(e) => e.target.style.textDecoration = 'none'}
-              >
-                Check Details →
-              </a>
             </div>
           </div>
           </div>
@@ -563,32 +479,6 @@ export default function ProjectPage() {
 
       <Footer />
 
-      {/* Mobile Responsive Styles */}
-      <style jsx>{`
-        @media (max-width: 768px) {
-          section {
-            padding: 100px 20px 60px 20px !important;
-          }
-          
-          /* Stack grid on mobile */
-          .project-grid {
-            grid-template-columns: 1fr !important;
-            gap: 40px !important;
-          }
-          
-          /* Stack project cards on mobile */
-          .related-projects {
-            grid-template-columns: 1fr !important;
-            gap: 20px !important;
-          }
-          
-          /* Stack offerings section on mobile */
-          .offerings-grid {
-            grid-template-columns: 1fr !important;
-            gap: 40px !important;
-          }
-        }
-      `}</style>
     </main>
   );
 }

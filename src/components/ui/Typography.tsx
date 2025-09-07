@@ -6,8 +6,8 @@ import React from 'react';
 interface BaseTypographyProps {
   children: React.ReactNode;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
-  color?: 'black' | 'gray-900' | 'gray-700' | 'gray-600' | 'gray-500' | 'gray-400';
+  as?: keyof React.JSX.IntrinsicElements;
+  color?: 'black' | 'gray-900' | 'gray-700' | 'gray-600' | 'gray-500' | 'gray-400' | 'red-500';
   align?: 'left' | 'center' | 'right';
   weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold';
 }
@@ -179,7 +179,7 @@ export function Link({
 
 // Button Text Component
 interface ButtonTextProps extends BaseTypographyProps {
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
 }
 
 export function ButtonText({ 
